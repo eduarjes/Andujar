@@ -300,11 +300,11 @@
 			// Create an input
 			var input = L.DomUtil.create('input', 'my-input');
 			// Set a feature property as value
-			input.value = feature.properties.PROVINCIA;
+			input.value = feature.properties.id;
 			// Add a listener to watch for change on input
 			L.DomEvent.addListener(input, 'change', function () {
 			// Input changed, change property value
-			feature.properties.PROVINCIA = input.value;
+			feature.properties.id = input.value;
 			});
 			// Bind popup to layer with input
 			layer.bindPopup(input);
