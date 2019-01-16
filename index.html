@@ -286,34 +286,17 @@
 			fillOpacity: 0.5
 			};
 			}
-			//function popup1(feature, layer) {
-			//if (feature.properties && feature.properties.id) {
-			//layer.bindPopup("<h2>"+feature.properties.id+" ("+feature.properties.Tipo+") "+"</h2>"+"Fecha: "+feature.properties.Fecha+"  "+"<p>Formulario: "+feature.properties.Formulario+"</p>" ,{pane: 'popups1'} );
+			function popup1(feature, layer) {
+			if (feature.properties && feature.properties.id) {
+			layer.bindPopup("<h2>"+feature.properties.id+" ("+feature.properties.Tipo+") "+"</h2>"+"Fecha: "+feature.properties.Fecha+"  "+"<p>Formulario: "+feature.properties.Formulario+"</p>" ,{pane: 'popups1'} );
 		//	layer.bindTooltip("<h2>"+feature.properties.id+" ("+feature.properties.Tipo+") "+"</h2>"+"Fecha: "+feature.properties.Fecha+"  "+"<p>Formulario: "+feature.properties.Formulario+"</p>",{direction:"top",sticky:true, permanente:true,offset:[0,-5], pane: 'popups'});			
-			//}
-			//}
-			//geojson1 = L.geoJson(tabla, {
-			//style: style1,
-			//onEachFeature: popup1
-			//})
-			function onEachFeature (feature, layer) {
-			// Create an input
-			var input = L.DomUtil.create('input', 'my-input');
-			// Set a feature property as value
-			input.value = feature.properties.Tipo;
-			// Add a listener to watch for change on input
-			L.DomEvent.addListener(input, 'change', function () {
-			// Input changed, change property value
-			feature.properties.Tipo = input.value;
-			});
-			// Bind popup to layer with input
-			layer.bindPopup(input);
 			}
-			var geojson1 = L.geoJson(tabla, {
-			onEachFeature: onEachFeature
-			}).addTo(map);
+			}
+			geojson1 = L.geoJson(tabla, {
+			style: style1,
+			onEachFeature: popup1
+			})
 																									
-
 			//Límites
 		//	var comunidades = L.geoJson(comunidades, {
 		//		color: "#17202A", 
